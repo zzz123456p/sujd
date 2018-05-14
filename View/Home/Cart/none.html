@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>我的购物车 - 京东商城</title>
+
+		<link href='./Public/Home/css/jd-mycart.css' type="text/css" rel="stylesheet">
+
+		<style type="text/css">
+			.fixed-bottom {
+				position: fixed;
+				bottom: 0px;
+				z-index: 999
+			}
+		</style>
+		<style type="text/css">
+			.jdm-toolbar .jdm-toolbar-footer .jdm-tbar-tab-survey .tab-ico {
+				display: none;
+				_display: none;
+			}
+			
+			.jdm-toolbar .jdm-toolbar-footer .jdm-tbar-tab-survey .tab-text {
+				left: 0px;
+				width: 35px;
+				height: 30px;
+				padding: 2px 0 3px;
+				line-height: 15px;
+				background: #c81623;
+				_display: block;
+			}
+			 <style type="text/css">
+   
+		.ltop {
+				float: left;
+				width: 330px;
+				height: 35px;
+			}
+			
+			.ltop .orange {
+				display: block;
+				float: left;
+				margin-top: 30px;
+				font-size: 32px;
+				color: #2b672b;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+			.ltop .gray {
+				display: block;
+				float: left;
+				margin-left: 13px;
+				margin-top: 30px;
+				width: 106px;
+				height: 33px;
+				color: rgb(204, 204, 204);
+				font-size: 32px;
+				font-weight: bold;
+				text-align: left;
+			}
+	
+      .list{height:30px;margin-left:210px; float:right;}.list li a{margin-left:30px;color:#428bca;line-height: 30px;}.list li a:hover{color:#2a6496;line-height: 30px;}
+    #h_in {
+				height: 26px;
+				width: 450px;
+				position: absolute;
+				left: 364px;
+				top: 26px;
+				border: 2px solid #5a9c42;
+			}
+			
+			#h_btn {
+				height: 32px;
+				width: 80px;
+				position: absolute;
+				left: 818px;
+				top: 26px;
+				border: 2px solid #1d5226;
+				background-color: #1d5226;
+				color: white;
+			}
+			
+		</style>
+   
+	</head>
+
+	<body>
+		<div id="shortcut-2014" style="background: #F1F1F1;">
+			<div class="w" style="width:1060px">
+				<ul class="fl">
+					<li class="dorpdown" id="ttbar-mycity">
+						送至：<span>北京</span>
+					</li>
+				</ul>
+				<ul class="list">
+
+					<?php
+    					    echo '<li>';
+                            if ($_SESSION['home_login'] == false) {
+                                echo '<a style="margin-left:115px;" href="./index.php?m=home&c=login&a=login">你好,请登录</a>';
+                            } else {
+                                echo '<span style="color:#428bca;">欢迎:</span><b><a href="./index.php?m=home&c=login&a=info" style="color:red;">'.$_SESSION['home_userinfo']['uname'].'</a></b><a href="./index.php?m=home&c=login&a=outlogin">&nbsp;退出</a>';
+                            }
+    					    echo '</li>';
+                        ?>
+						<li>
+                            <?php
+                                if($_SESSION['home_login'] == true) {
+    						      	echo '<a href="./index.php?m=home&c=login&a=info">个人中心</a>';
+                                } else {
+                                    echo '<a href="">关于我们</a>';
+                                }
+                            ?>
+						</li>
+						<li>
+							<a href="./index.php?m=home&c=order&a=list">我的订单</a>
+						</li>
+						<li>
+							<a href="./index.php?m=home&c=login&a=info">我的京东</a>
+						</li>
+						<li>
+							<a href="">京东会员</a>
+						</li>
+						<li>
+							<a href="">手机京东</a>
+						</li>
+						<li>
+							<a href="">关注京东</a>
+						</li>
+						<li>
+							<a href="">客户服务</a>
+						</li>
+				</ul>
+				<span class="clr"></span>
+			</div>
+		</div>
+		<div id="o-header-2013">
+			<div id="header-2013" style="display:none;"></div>
+		</div>
+		<div id="nav" style="background:#89be86;">
+		<div class="w w1 header clearfix" style="width: 1100px;">
+			 <div class="logo" style="width: 310px;float: left;">
+          <a href="./index.php?m=home&c=index&a=index"   clstag="homepage|keycount|home2013|Homejdlogo">
+          		<div class="ltop">
+					<span class="orange">SimulateJd</span>
+					<span class="gray">Design</span>
+				</div>
+          </a>
+          </div>
+
+			<div class="right" style="float: right;width: 450px;height: 62px;position: relative;">
+				
+				<input id='h_in' type="text" name="keywords" placeholder=' 商品名称'style="width: 340px;left:0px;">
+				<input id='h_btn' type="submit" value="搜索" style="width: 45px;left: 343px;">
+			</div>
+		</div>
+		</div>
+
+
+		<!-- main -->
+		<div id="container" class="cart">
+			<div class="w">
+				<div id="chunjie" class="mb10"></div>
+				<div class="cart-filter-bar">
+					<ul class="switch-cart">
+						<li class="switch-cart-item">
+							<a href="">
+								<em>全部商品</em>
+								<span class="number">1</span>
+							</a>
+						</li>
+						<li class="switch-cart-item ui-switchable-selected curr">
+							<a class="" href="">
+								<em>京东大药房</em>
+							</a>
+						</li>
+					</ul>
+					<div class="cart-store">
+						<input id="hiddenLocationId" type="hidden">
+						<input id="hiddenLocation" type="hidden">
+
+					</div>
+					<div class="clr"></div>
+					<div class="w-line">
+						<div class="floater" style="width: 81px; left: 109.703px;"></div>
+					</div>
+					<div class="tab-con" style="display: none;"></div>
+					<div class="tab-con hide ui-switchable-panel-selected" style="display: block;"></div>
+				</div>
+			</div>
+			<div class="cart-warp">
+				<div class="w">
+					<div id="jd-cart">
+						<div style="letter-spacing:2px;position:relative;left:285px;top:150px;" ><img src="./Public/Home/images/no-login-icon.png"> 购物车内暂时没有商品~赶快去购物吧~<a style="color:red;" href="./index.php?m=home&c=index&a=index">去购物>></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

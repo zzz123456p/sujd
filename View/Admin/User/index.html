@@ -1,0 +1,106 @@
+<?php
+    include_once('./View/Admin/layout/header.html');
+?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+      <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎管理员登录后台！</span></div>
+        </div>
+        <!-- 主体开始 -->
+        <div class="search-wrap">
+            <div class="search-content">
+                <form action="./index.php" method="get">
+                    <input type="hidden" name="m" value="admin">
+                    <input type="hidden" name="c" value="user">
+                    <input type="hidden" name="a" value="index">
+                    <table class="search-tab">
+                        <tbody><tr>
+                            <th width="120">选择分类:</th>
+                                <td>
+                                    <select name="search_type" id="">
+                                        <option value="uname" 
+                                        <?php
+                                            if(!empty($_GET['search_type']) && $_GET['search_type'] == 'uname'){
+                                                echo 'selected';
+                                            }
+                                        ?>
+                                        >用户名</option>
+                                        <option value="sex"
+                                        <?php
+                                            if(!empty($_GET['search_type']) && $_GET['search_type'] == 'sex' ){
+                                                echo 'selected';
+                                            }
+                                        ?>
+                                        >性别</option>
+                                    </select>
+                                </td>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="<?= empty($_GET['keywords']) ? '' : $_GET['keywords'];?>" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
+                        </tr>
+                    </tbody></table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>性别</th>
+                            <th>电话</th>
+                            <th>地址</th>
+                            <th>状态</th>
+                            <th>权限</th>
+                            <th>邮箱</th>
+                            <th>操作</th>
+                          <!--   <th>编号</th>-->
+                        </tr>
+                        <?php foreach ($data as $k => $v): ?>
+                        <tr>
+                            <td><?= $v['uid'];?></td>
+                            <td><?= $v['uname'];?></td>
+                            <td>
+                            <?php if($v['sex'] == 'm') {
+                                    echo '男';
+                                } else if ($v['sex'] == 'w') {
+                                    echo '女';
+                                } else {
+                                    echo '保密';
+                                }
+                            ?>
+                            </td>
+                            <td><?= $v['tel'];?></td>
+                            <td><?= $v['addr'];?></td>
+                            <td><?= $v['static'] == 0 ? '未激活' : '<div style="color:red;">激活</div>';?></td>
+                            <td><?= $v['auth'] == 0 ? '普通会员' : '<div style="color:red;">管理员</div>';?></td>
+                            <td><?= $v['email'];?></td>
+                            <td>
+                                <a class="link-update" href="./index.php?m=admin&c=user&a=details&uid=<?= $v['uid'];?>">详情</a>
+                                <a class="link-update" href="./index.php?m=admin&c=user&a=edit&uid=<?= $v['uid'];?>">修改</a>
+                                <a class="link-del" href="./index.php?m=admin&c=user&a=delete&uid=<?= $v['uid'];?>">删除</a>
+                                <a class="link-del" href="./index.php?m=admin&c=user&a=updatepwd&uid=<?= $v['uid'];?>">修改密码</a>
+                            </td>
+                           <!-- <td><?= $v['unum'];?></td>-->
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody></table>
+                    <div class="list-page">
+                        <a href="<?= $url.'1'; ?>">首页</a>
+                        <a href="<?= $url.$prevPage; ?>">上一页</a>
+                        <input type="text" value="<?= $page; ?>" name="jump" style="width:20px;" disabled>
+                        <a href="<?= $url.$nextPage; ?>">下一页</a>
+                        <a href="<?= $url.$maxPage; ?>">尾页</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 主体结束 -->
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

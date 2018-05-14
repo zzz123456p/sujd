@@ -1,0 +1,62 @@
+<?php 
+    include_once('./View/Admin/layout/header.html');
+ ?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用『豪情』博客程序，建博的首选工具。</span></div>
+        </div>
+        <!-- 内容开始 -->
+          <div class="result-wrap">
+            <form action="./index.php?m=admin&c=orders&a=update&oid=<?= $data['oid']?>" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <div class="config-items">
+                    <div class="config-title">
+                        <h1><i class="icon-font"></i>商品修改</h1>
+                    </div>
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                            <tbody>
+                                <tr>
+                                    <th><i class="require-red">*</i>收货人：</th>
+                                    <td><input type="text" id="" value="<?= $data['rec']?>" size="35" name="rec" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>联系电话：</th>
+                                    <td><input type="text" id="" value="<?= $data['tel']?>" size="35" name="tel" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>收货地址：</th>
+                                    <td><input type="text" id="" value="<?= $data['addr']?>" size="35" name="addr" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>卖家留言：</th>
+                                    <td><input type="text" id="" value="<?= $data['umsg']?>" size="35" name="umsg" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品状态：</th>
+                                    <td>
+                                        正在出库 <input type="radio" value="1" size="35" name="status" class="common-text" <?= $data['status'] == '1' ? 'checked' : '';?>>
+                                        正在向您飞奔 <input type="radio" value="2" size="35" name="status" class="common-text" <?= $data['status'] == '2' ? 'checked' : '';?>>
+                                        已签收 <input type="radio" value="3" size="35" name="status" class="common-text" <?= $data['status'] == '3' ? 'checked' : '';?>>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <input type="submit" value="修改" class="btn btn-success btn6 mr10">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+               
+            </form>
+        </div>  
+            
+        <!-- 内容结束 -->
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="./Public/Home/css/login.css">
+	<style>
+		.ltop {
+				float: left;
+				/*margin-left: 15px;*/
+				width: 498px;
+				height: 35px;
+			}
+			
+			.ltop .orange {
+				display: block;
+				float: left;
+				margin-top: 30px;
+				font-size: 32px;
+				color: #2b672b;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+			.ltop .gray {
+				display: block;
+				float: left;
+				margin-left: 13px;
+				margin-top: 30px;
+				width: 106px;
+				height: 33px;
+				color: rgb(204, 204, 204);
+				font-size: 32px;
+				font-weight: bold;
+				text-align: left;
+			}
+	</style>
+</head>
+<body style="background:#EEF7E8">
+	<div id='header'>
+		
+			<!--<img id='logo' src='./Public/Home/images/logo.png'>-->
+				<a href="./index.php?m=home&c=index&a=index">
+				<div class="ltop">
+					<span class="orange">SimulateJd</span>
+					<span class="gray">Design</span>
+					<div class="hy" style="float:left;font-size: 30px;margin-top: 28px;margin-left: 20px;color:#545454">欢迎登录</div>
+				</div>
+				</a>
+	
+		
+	</div>
+	<div id='mainbody'>
+		<div id='content'>
+			<div id='login-form' style="border-radius: 5px;">
+			  <div id='lf-top' >
+			    <span id='lf-top-1'>扫码登录</span>
+				<span id='lf-top-2' style="color:#075c3b;">账户登录</span>
+			  </div>
+			  <div id='lf-notice'>公共场所不建议自动登录，以防账号丢失</div>
+			  <form action='index.php?m=home&c=login&a=dologin' method='POST'>
+			    <div id='lf-uname'>
+				   <i></i>
+				   <input  type='text' name='uname' />
+				</div>
+				<div id='lf-upwd'>
+				   <i></i>
+				   <input  type='password' name='upwd' />
+				</div>
+				<div id='lf-auto'>
+					<span><input type='checkbox'>自动登录</span>
+					<span>忘记密码</span>
+				</div>
+				<input id='lf-submit' type='submit' value='登&nbsp;&nbsp;&nbsp;录' style="background-color:#075c3b;">
+				<div id='lf-bottom'>
+                   <span>京东钱包</span>
+                   <span>QQ</span>
+                   <span>微信</span>
+                   <span><i></i><a style="text-decoration:none;color:#2b672b;" href="index.php?m=home&c=reg&a=reg">立即注册</a></span>
+				</div>
+			  </form>
+			</div>
+		</div>
+	</div>
+	<div id='footer'>
+     
+        <div style='clear:both;'></div>
+        <div id='footer-2' style="margin-top: 30px;">关于我们 | 联系我们 | 人才招聘 | 商家入驻 | 广告服务 | 手机京东 | 友情链接 | 销售联盟 | 京东社区 | 京东公益 | English Site<br>
+            Copyright&copy; 2004-2016 京东JD.com版权所有
+        </div>
+    </div>
+</body>
+</html>

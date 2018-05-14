@@ -1,0 +1,105 @@
+<?php
+    include_once('./View/Admin/layout/header.html');
+?>
+ <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list">
+             <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎管理员登录后台！</span></div>
+            </div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form action="./index.php" method="get">
+                    <input type="hidden" name="m" value="admin">
+                    <input type="hidden" name="c" value="orders">
+                    <input type="hidden" name="a" value="index">
+                    <table class="search-tab">
+                        <tbody><tr>
+                            <th width="120">选择分类:</th>
+                                <td>
+                                    <select name="search_type" id="">
+                                        <option value="uid" 
+                                        <?php
+                                            if(!empty($_GET['search_type']) && $_GET['search_type'] == 'gname'){
+                                                echo 'selected';
+                                            }
+                                        ?>
+                                        >下单人</option>
+                                        <option value="rec"
+                                        <?php
+                                            if(!empty($_GET['search_type']) && $_GET['search_type'] == 'flid' ){
+                                                echo 'selected';
+                                            }
+                                        ?>
+                                        >收货人</option>
+                                    </select>
+                                </td>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="<?= empty($_GET['keywords']) ? '' : $_GET['keywords'];?>" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
+                        </tr>
+                    </tbody></table>
+                </form>
+            </div>
+        </div>
+        <!-- 主体开始 -->
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tbody>
+                        <tr>
+                            <th>订单ID</th>
+                            <th>订单金额</th>
+                            <th>商品件数</th>
+                            <th>下单人</th>
+                            <th>收货人</th>
+                            <th>收货地址</th>
+                            <th>联系电话</th>
+                            <th>状态</th>
+                            <th>买家留言</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                        <?php foreach (array_reverse($data) as $k => $v): ?>
+                        <tr>
+                            <td><?= $v['oid']; ?></td>
+                            <td><?= $v['ormb']; ?></td>
+                            <td><?= $v['ocnt']; ?></td>
+                            <td><?= $v['uid']; ?></td>
+                            <td><?= $v['rec']; ?></td>
+                            <td><?= $v['addr']; ?></td>
+                            <td><?= $v['tel']; ?></td>
+                            <td><?php
+                                if($v['status'] == 1) {
+                                    echo '正在出库';
+                                } else if($v['status'] == 2){
+                                    echo '正在向您飞奔';
+                                } else if($v['status'] == 3){
+                                    echo '已签收';
+                                }
+                            ?></td>
+                            <td><?= $v['umsg']; ?></td>
+                            <td><?= date('Y-m-d H:i:s',$v['otime']); ?></td>
+                            <td>
+                                <a href="./index.php?m=admin&c=orders&a=edit&oid=<?= $v['oid'];?>">管理订单</a>
+                            </td>
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody></table>
+                    <div class="list-page">
+                        <a href="<?= $url.'1'; ?>">首页</a>
+                        <a href="<?= $url.$prevPage; ?>">上一页</a>
+                        <input type="text" value="<?= $page; ?>" name="jump" style="width:20px;" disabled>
+                        <a href="<?= $url.$nextPage; ?>">下一页</a>
+                        <a href="<?= $url.$maxPage; ?>">尾页</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 主体结束 -->
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

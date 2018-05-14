@@ -1,0 +1,56 @@
+<?php
+    include_once('./View/Admin/layout/header.html');
+?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用『豪情』博客程序，建博的首选工具。</span></div>
+        </div>
+        <!-- 主体开始 -->
+        <div class="result-wrap">
+            <form action="./index.php?m=admin&c=user&a=newpwd&uid=<?= $data['uid'] ?>" method="post" id="myform" name="myform">
+                <div class="config-items">
+                    <div class="config-title">
+                        <h1><i class="icon-font"></i>修改用户信息</h1>
+                    </div>
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                            <tbody>
+                                <tr>
+                                    <th width="15%"><i class="require-red">*</i>用户名：</th>
+                                    <td><input type="text" id="" value="<?= $data['uname'];?>" size="85" name="uname" class="common-text" disabled style="background-color:#eee;"></td>
+                                </tr>
+                                <tr>
+                                    <th width="15%"><i class="require-red">*</i>原密码：</th>
+                                    <td><input type="password" id="" value="" size="85" name="upwd" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th width="15%"><i class="require-red">*</i>新密码：</th>
+                                    <td><input type="password" id="" value="" size="85" name="npwd" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th width="15%"><i class="require-red">*</i>确认密码：</th>
+                                    <td><input type="password" id="" value="" size="85" name="renpwd" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <input type="hidden" value="" name="file">
+                                        <input type="submit" value="修改" class="btn btn-success btn6 mr10">
+                                        <input type="reset" value="返回" onclick="history.go(-1)" class="btn btn-primary btn6 mr10">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 主体结束 -->
+      
+      
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

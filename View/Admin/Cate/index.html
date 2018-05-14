@@ -1,0 +1,45 @@
+<?php
+    include_once('./View/Admin/layout/header.html');
+?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎管理员登录后台！</span></div>
+        </div>
+        <!-- 主体开始 -->
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>分类名称</th>
+                            <th>父级ID</th>
+                            <th>分类路径</th>
+                            <th>操作</th>
+                        </tr>
+                        <?php foreach ($cate_data as $k => $v): ?>
+                        <tr>
+                            <td><?= $v['cid']; ?></td>
+                            <td style="text-align:left;"><?= $v['cname']; ?></td>
+                            <td><?= $v['pid']; ?></td>
+                            <td><?= $v['path']; ?></td>
+                            <td>
+                                <a href="./index.php?m=admin&c=cate&a=edit&cid=<?= $v['cid'];?>">修改</a>
+                                <a href="./index.php?m=admin&c=cate&a=delete&cid=<?= $v['cid'];?>">删除</a>
+                                <a href="./index.php?m=admin&c=cate&a=readd&cid=<?= $v['cid'];?>">添加子类</a>
+                            </td>
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody></table>
+                    
+                </div>
+            </form>
+        </div>
+        <!-- 主体结束 -->
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

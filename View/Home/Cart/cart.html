@@ -1,0 +1,26 @@
+<?php
+	include_once('./View/Home/layout/header.html');
+?>
+	<div id='precart-p'>
+		<div id='precart-c'>
+			<div id='pre-l'>
+				<p>商品已成功加入购物车！</p>
+				<img src="<?= $data['gpic']?>">
+				<div>
+					<span><?= $data['gname']?></span>
+					<span><?= $data['gdesc']?>/ 数量：<?= $data['n']?></span>
+				</div>
+			</div>
+			<div id='pre-r'>
+				<a href='<?= $_SERVER["HTTP_REFERER"]?>'>返回</a>
+				<a href='./index.php?m=home&c=cart&a=index'>去购物车结算</a>
+			</div>
+		</div>
+	</div>
+	<div style='clear:both;'></div>
+
+	<!--  页脚  -->
+
+	</body>
+
+	</html>

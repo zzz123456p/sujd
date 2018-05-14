@@ -1,0 +1,81 @@
+<?php 
+    include_once('./View/Admin/layout/header.html');
+ ?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用『豪情』博客程序，建博的首选工具。</span></div>
+        </div>
+        <!-- 内容开始 -->
+          <div class="result-wrap">
+            <form action="./index.php?m=admin&c=goods&a=update&gid=<?= $data['gid']?>" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <div class="config-items">
+                    <div class="config-title">
+                        <h1><i class="icon-font"></i>商品修改</h1>
+                    </div>
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                            <tbody>
+                            <tr>
+                                <th width="15%"><i class="require-red">*</i>商品分类</th>
+                                <td>
+                                     <select name="cid" style="width:315px;">
+                                         <option value="0">--请选择--</option>
+                                         <?php foreach ($cate_data as $k => $v): ?>
+                                             <option value="<?php echo $v['cid'] ?>"<?= $data['cid'] == $v['cid'] ? 'selected': '';?>><?php echo $v['cname']; ?></option>
+                                         <?php endforeach ?>
+                                     </select>   
+                                </td>
+                            </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品名称：</th>
+                                    <td><input type="text" id="" value="<?= $data['gname']?>" size="35" name="gname" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品价格：</th>
+                                    <td><input type="text" id="" value="<?= $data['price']?>" size="35" name="price" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品库存：</th>
+                                    <td><input type="text" id="" value="<?= $data['num']?>" size="35" name="num" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品图片：</th>
+                                    <td>
+                                        <img src="<?= $data['gpic']?>" alt="" style="width:100px;"/><br>
+                                        <input type="file" id="" value="<?= $data['gpic']?>" size="35" name="gpic" class="common-text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品状态：</th>
+                                    <td>
+                                        上架 <input type="radio" value="1" size="35" name="status" class="common-text" <?= $data['status'] == '1' ? 'checked' : '';?>>
+                                        下架 <input type="radio" value="2" size="35" name="status" class="common-text" <?= $data['status'] == '2' ? 'checked' : '';?>>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>商品描述：</th>
+                                    <td>
+                                        <textarea name="gdesc" style="width:310px;height:160px;resize:none;"><?= $data['gdesc']?> </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <input type="submit" value="修改" class="btn btn-success btn6 mr10">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+               
+            </form>
+        </div>  
+            
+        <!-- 内容结束 -->
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

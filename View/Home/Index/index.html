@@ -1,0 +1,159 @@
+<?php
+	include_once('./View/Home/layout/header.html');
+?>
+<script src="./Public/jquery-1.8.3.min.js"></script>
+<div id='mainbody'>
+	<div id='main_m'>
+		<!--轮播开始-->
+		<div class="slideShow">
+			
+			<ul>
+				<li><img src="./Public/Home/images/banner2.jpg" /></li>
+				<li><img src='./Public/Home/images/banner.jpg' /></li>
+				<li><img src="./Public/Home/images/banner3.jpg" /></li>
+				<li><img src="./Public/Home/images/banner1.jpg" /></li>
+			</ul>
+			<!--图片布局结束-->
+
+			<!--按钮布局开始-->
+			<div class="showNav">
+				<span class="active">1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+			</div>
+			<!--按钮布局结束-->
+		</div>
+
+	</div>
+	<script>
+		$(document).ready(function() {
+			var slideShow = $(".slideShow"), //获取最外层框架的名称
+				ul = slideShow.find("ul"),
+				showNumber = slideShow.find(".showNav span"), //获取按钮
+				oneWidth = slideShow.find("ul li").eq(0).width(); //获取每个图片的宽度
+			var timer = null; //定时器返回值，主要用于关闭定时器
+			var iNow = 0; //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0
+
+			showNumber.on("click", function() { //为每个按钮绑定一个点击事件 
+				$(this).addClass("active").siblings().removeClass("active"); //按钮点击时为这个按钮添加高亮状态，并且将其他按钮高亮状态去掉
+				var index = $(this).index(); //获取哪个按钮被点击，也就是找到被点击按钮的索引值
+				iNow = index;
+				ul.animate({
+					"left": -oneWidth * iNow, //注意此处用到left属性，所以ul的样式里面需要设置position: relative; 让ul左移N个图片大小的宽度，N根据被点击的按钮索引值iNOWx确定
+				})
+			});
+
+			timer = setInterval(function() { //打开定时器
+				iNow++; //让图片的索引值次序加1，这样就可以实现顺序轮播图片
+				if(iNow > showNumber.length - 1) { //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始
+					iNow = 0;
+				}
+				showNumber.eq(iNow).trigger("click"); //模拟触发数字按钮的click
+			}, 2000); //2000为轮播的时间
+		})
+	</script>
+	<div id='main_r'>
+		<div id='mr_1'>
+			<h3>京东快报</h3>
+			<span>更多 &gt;</span>
+			<div style='clear:both;'></div>
+			<ul id='notice'>
+				<a href=""><li><b>[特惠]</b>新车1元试驾 到店送好礼</li></a>
+				<a href=""><li><b>[公告]</b>上京东生鲜 品陕西苹果</li></a>
+				<a href=""><li><b>[特惠]</b>200元中秋礼券免费领</li></a>
+				<a href=""><li><b>[公告]</b>安微地区因仓库升级配送延迟</li></a>
+				<a href=""><li><b>[特惠]</b>每日享折扣京东品质游</li></a>
+			</ul>
+		</div>
+
+		<img src="./Public/Home/images/mr_2.png" alt="" id="mr_2">
+
+	</div>
+</div>
+<div id='today'>
+
+	<img src="./Public/Home/images/today_1.png" style='height:147px;' alt="">
+
+	<img src="./Public/Home/images/today_2.jpg" alt="">
+	<img src="./Public/Home/images/today_3.jpg" alt="">
+	<img src="./Public/Home/images/today_4.jpg" alt="">
+	<img src="./Public/Home/images/today_5.jpg" alt="">
+	<div style='clear:both;'></div>
+</div>
+
+<div id='bottom'>
+	<div id='b_m'>
+		<img src="./Public/Home/images/b_4.png" alt="">
+		<img src="./Public/Home/images/b_3.png" alt="">
+		<img src="./Public/Home/images/b_2.png" alt="">
+		<img src="./Public/Home/images/b_1.png" alt="">
+	</div>
+</div>
+<div id="bofoot">
+	<div id='footer'>
+		<dl style="margin-left:20px;">
+			<dt>购物指南</dt>
+			<dd>购物流程</dd>
+			<dd>会员介绍</dd>
+			<dd>常见问题</dd>
+			<dd>大家电</dd>
+			<dd>联系客服</dd>
+		</dl>
+		<dl>
+			<dt>配送方式</dt>
+			<dd>上门自提</dd>
+			<dd>限时达</dd>
+			<dd>服务查询</dd>
+			<dd>收取标准</dd>
+			<dd>海外配送</dd>
+		</dl>
+		<dl>
+			<dt>支付方式</dt>
+			<dd>货到付款</dd>
+			<dd>在线支付</dd>
+			<dd>分期付款</dd>
+			<dd>邮局汇款</dd>
+			<dd>公司转账</dd>
+		</dl>
+		<dl>
+			<dt>售后服务</dt>
+			<dd>售后政策</dd>
+			<dd>价格保护</dd>
+			<dd>退款说明</dd>
+			<dd>返修/退换货</dd>
+			<dd>取消订单</dd>
+		</dl>
+		<dl>
+			<dt>特色服务</dt>
+			<dd>夺宝岛</dd>
+			<dd>DIY装机</dd>
+			<dd>延保服务</dd>
+			<dd>京东E卡</dd>
+			<dd>京东通信</dd>
+
+		</dl>
+		<dl style='margin:16px 0px 0px 25px;'>
+			<dt>京东自营覆盖区县</dt>
+			<img src="./Public/Home/images/qrCode.jpg">
+
+		</dl>
+
+	</div>
+</div>
+<div style='background:#f0f3ef3;color:#6A6A6A;clear:both;text-align:center;font-size:12px;line-height:20px;padding-top: 20px;'>
+	关于我们 | 联系我们 | 联系客服 | 商家入驻 | 手机京东 | 友情链接 | 销售联盟 ｜ 京东社区 ｜ 京东公益 | English Site | ContacT Us　<br>
+	<img src="" alt="">京公网安备 110000020000088号 | 京ICP证070359号 | 互联网药品信息服务资格证编号(京)-经营性-2014-0008 | 新出发京零 字第大120007号<br> 互联网出版许可证编号新出网证(京)字150号 | 出版物经营许可证 | 网络文件经营许可证京网文[2014]2148-348号 | 违法和不良信息举报电话:4006561155<br> Copyright@2004-2016京东JD.com版权所有 | 消费者维权热线:4006067733<br> 京东旗下网站:京东钱包
+	<br>
+	<br>
+	<img src="./Public/Home/images/f_1.png" alt="">
+	<img src="./Public/Home/images/f_2.png" alt="">
+	<img src="./Public/Home/images/f_3.jpg" alt="">
+	<img src="./Public/Home/images/f_4.png" alt="">
+	<img src="./Public/Home/images/f_5.jpg" alt="">
+	<img src="./Public/Home/images/f_6.jpg" alt="">
+</div>
+
+</body>
+
+</html>

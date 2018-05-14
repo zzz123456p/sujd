@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="root61">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+		<title>个人注册</title>
+
+		<link href='./Public/Home/css/jd-reg.css' type='text/css' rel='stylesheet'>
+		<style>
+		.ltop {
+				float: left;
+				margin-top:8px;
+				width: 300px;
+				height: 35px;
+			}
+			
+			.ltop .orange {
+				display: block;
+				float: left;
+				margin-top: 30px;
+				font-size: 32px;
+				color: #2b672b;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+			.ltop .gray {
+				display: block;
+				float: left;
+				margin-left: 13px;
+				margin-top: 30px;
+				width: 106px;
+				height: 33px;
+				color: rgb(204, 204, 204);
+				font-size: 32px;
+				font-weight: bold;
+				text-align: left;
+			}
+	</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="logo-con w clearfix">
+				<a href="./index.php?m=home&c=index&a=index" >
+						<div class="ltop">
+					<span class="orange">SimulateJd</span>
+					<span class="gray">Design</span>
+				</div>
+				</a>
+				<div class="logo-title">欢 迎 注 册</div>
+				<div class="have-account">已有账号
+					<a href="./index.php?m=home&c=login&a=login">请登录</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="container w">
+
+			<div class="main clearfix">
+				<div class="reg-form fl">
+					<form action="index.php?m=home&c=reg&a=doreg" id="register-form" method="post" novalidate="novalidate">
+                    <input type="password" style="display:none">
+
+						<div class="form-item form-item-account" id="form-item-account">
+							<label>用　户　名</label>
+							<input type="text" id="form-account" name="uname" class="field" autocomplete="off" maxlength="20" placeholder="您的账户名和登录名" default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;支持中文、字母、数字、“-”“_”的组合，4-20个字符">
+							<i class="i-status"></i>
+						</div>
+						<div class="input-tip">
+							<span></span>
+						</div>
+						<div class="form-item">
+							<label>设 置 密 码</label>
+							<input type="password" name="upwd" id="form-pwd" class="field" maxlength="20" placeholder="建议至少使用两种字符组合" default="&lt;i class=i-def&gt;&lt;/i&gt;建议使用字母、数字和符号两种及以上的组合，6-20个字符">
+							<i class="i-status"></i>
+							<div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div>
+							<div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div>
+						</div>
+						<div class="input-tip">
+							<span></span>
+						</div>
+						<div class="form-item">
+							<label>确 认 密 码</label>
+
+							<input type="password" name="reupwd" id="form-equalTopwd" class="field" placeholder="请再次输入密码" maxlength="20" default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;请再次输入密码">
+							<i class="i-status"></i>
+							<div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div>
+							<div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div>
+						</div>
+						<div class="input-tip">
+							<span></span>
+						</div>
+						<div class="form-item form-item-authcode">
+							<label>验　证　码</label>
+							<input type="text" autocomplete="off" name="code" id="authCode" maxlength="6" class="field form-authcode" placeholder="请输入验证码" default="&lt;i class=&quot;i-def&quot;&gt;&lt;/i&gt;看不清？点击图片更换验证码">
+							<img src="./Public/code.php" class="img-code" onclick="this.src='./Public/code.php'">
+						</div>
+
+						<div class="input-tip">
+							<span></span>
+						</div>
+						<div class="form-agreen">
+							<div><input type="checkbox" name="agreen" checked="">我已阅读并同意
+								<a href="javascript:;" id="protocol">《京东用户注册协议》</a>
+							</div>
+							<div class="input-tip">
+								<span></span>
+							</div>
+						</div>
+						<div>
+							<button type="submit" class="btn-register" style="background: #4d8f37;border-radius: 3px;">立即注册</button>
+						</div>
+					</form>
+				</div>
+				<div class="reg-other">
+					<div class="phone-fast-reg">
+					</div>
+					<div class="company-reg">
+						<a href="">
+							<i class="i-company"></i>
+							<span>企业用户注册</span>
+						</a>
+					</div>
+					<div class="inter-cust">
+						<a href="">
+							<i class="i-global"></i>
+							<span>INTERNATIONAL<br>CUSTOMERS</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="footer w">
+			<div class="links">
+				<a rel="nofollow" target="_blank" href=""> 关于我们</a>|
+				<a rel="nofollow" target="_blank" href="">联系我们</a>|
+				<a rel="nofollow" target="_blank" href="">人才招聘</a>|
+				<a rel="nofollow" target="_blank" href="">商家入驻</a>|
+				<a rel="nofollow" target="_blank" href="">广告服务</a>|
+				<a rel="nofollow" target="_blank" href="">手机京东</a>|
+				<a target="_blank" href="">友情链接</a>|
+				<a target="_blank" href="">销售联盟</a>|
+				<a href="" target="_blank">京东社区</a>|
+				<a href="" target="_blank">京东公益</a>|
+				<a target="_blank" href="" clstag="pageclick|keycount|20150112ABD|9">English Site</a>
+			</div>
+			<div class="copyright">
+				Copyright&#169;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
+			</div>
+		</div>
+
+		<a target="_blank" href="" class="feedback" style="margin-top: -85px; position: fixed; right: 0px; bottom: 50%;"></a>
+
+	</body>
+
+</html>

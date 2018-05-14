@@ -1,0 +1,50 @@
+<?php
+    include_once('./View/Admin/layout/header.html');
+?>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎使用『豪情』博客程序，建博的首选工具。</span></div>
+        </div>
+        <!-- 主体开始 -->
+       <div class="result-wrap">
+            <form action="./index.php?m=admin&c=cate&a=update&cid=<?= $data['cid'];?>" method="post" id="myform" name="myform">
+                <div class="config-items">
+                    <div class="config-title">
+                        <h1><i class="icon-font"></i>分类修改</h1>
+                    </div>
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                            <tbody>
+                                <tr>
+                                    <th width="15%"><i class="require-red">*</i>父级分类：</th>
+                                    <td>
+                                    <select name="pid" id="" style="width:470px;">
+                                        <option value="0">--请选择--</option>
+                                        <?php foreach($cate_data as $k => $v): ?>
+                                            <option value="<?= $v['cid'];?>" <?= $data['pid'] == $v['cid'] ? 'selected': '';?>> <?= $v['cname'];?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="15%"><i class="require-red">*</i>分类名称：</th>
+                                    <td><input type="text" id="" value="<?= $data['cname']?>" size="55" name="cname" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <input type="submit" value="提交" class="btn btn-success btn6 mr10">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        <!-- 主体结束 -->
+        </div>
+    <!--/main-->
+</div>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>我的购物车 - 京东商城</title>
+
+		<link href='./Public/Home/css/jd-mycart.css' type="text/css" rel="stylesheet">
+
+		<style type="text/css">
+			.fixed-bottom {
+				position: fixed;
+				bottom: 0px;
+				z-index: 999
+			}
+		</style>
+		<style type="text/css">
+			.jdm-toolbar .jdm-toolbar-footer .jdm-tbar-tab-survey .tab-ico {
+				display: none;
+				_display: none;
+			}
+			
+			.jdm-toolbar .jdm-toolbar-footer .jdm-tbar-tab-survey .tab-text {
+				left: 0px;
+				width: 35px;
+				height: 30px;
+				padding: 2px 0 3px;
+				line-height: 15px;
+				background: #c81623;
+				_display: block;
+			}
+			 <style type="text/css">
+   
+		.ltop {
+				float: left;
+				width: 330px;
+				height: 35px;
+			}
+			
+			.ltop .orange {
+				display: block;
+				float: left;
+				margin-top: 30px;
+				font-size: 32px;
+				color: #2b672b;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+			.ltop .gray {
+				display: block;
+				float: left;
+				margin-left: 13px;
+				margin-top: 30px;
+				width: 106px;
+				height: 33px;
+				color: rgb(204, 204, 204);
+				font-size: 32px;
+				font-weight: bold;
+				text-align: left;
+			}
+	
+      .list{height:30px;margin-left:210px; float:right;}.list li a{margin-left:30px;color:#428bca;line-height: 30px;}.list li a:hover{color:#2a6496;line-height: 30px;}
+    #h_in {
+				height: 26px;
+				width: 450px;
+				position: absolute;
+				left: 364px;
+				top: 26px;
+				border: 2px solid #5a9c42;
+			}
+			
+			#h_btn {
+				height: 32px;
+				width: 80px;
+				position: absolute;
+				left: 818px;
+				top: 26px;
+				border: 2px solid #1d5226;
+				background-color: #1d5226;
+				color: white;
+			}
+			
+		</style>
+   
+	</head>
+
+	<body>
+		<div id="shortcut-2014" style="background: #F1F1F1;">
+			<div class="w" style="width:1100px">
+				<ul class="fl">
+					<li class="dorpdown" id="ttbar-mycity">
+						送至：<span>北京</span>
+					</li>
+				</ul>
+				<ul class="list">
+
+					<?php
+    					    echo '<li>';
+                            if ($_SESSION['home_login'] == false) {
+                                echo '<a style="margin-left:115px;" href="./index.php?m=home&c=login&a=login">你好,请登录</a>';
+                            } else {
+                                echo '<span style="color:#428bca;">欢迎:</span><b><a href="./index.php?m=home&c=login&a=info" style="color:red;">'.$_SESSION['home_userinfo']['uname'].'</a></b><a href="./index.php?m=home&c=login&a=outlogin">&nbsp;退出</a>';
+                            }
+    					    echo '</li>';
+                        ?>
+						<li>
+                            <?php
+                                if($_SESSION['home_login'] == true) {
+    						      	echo '<a href="./index.php?m=home&c=login&a=info">个人中心</a>';
+                                } else {
+                                    echo '<a href="">关于我们</a>';
+                                }
+                            ?>
+						</li>
+						<li>
+							<a href="./index.php?m=home&c=order&a=list">我的订单</a>
+						</li>
+						<li>
+							<a href="./index.php?m=home&c=login&a=info">我的京东</a>
+						</li>
+						<li>
+							<a href="">京东会员</a>
+						</li>
+						<li>
+							<a href="">手机京东</a>
+						</li>
+						<li>
+							<a href="">关注京东</a>
+						</li>
+						<li>
+							<a href="">客户服务</a>
+						</li>
+				</ul>
+				<span class="clr"></span>
+			</div>
+		</div>
+		<div id="o-header-2013">
+			<div id="header-2013" style="display:none;"></div>
+		</div>
+		<div id="nav" style="background:#89be86;">
+		<div class="w w1 header clearfix" style="width: 1100px;">
+			 <div class="logo" style="width: 310px;float: left;">
+          <a href="./index.php?m=home&c=index&a=index"   clstag="homepage|keycount|home2013|Homejdlogo">
+          		<div class="ltop">
+					<span class="orange">SimulateJd</span>
+					<span class="gray">Design</span>
+				</div>
+          </a>
+          </div>
+
+			<div class="right" style="float: right;width: 450px;height: 62px;position: relative;">
+				
+				<input id='h_in' type="text" name="keywords" placeholder=' 商品名称'style="width: 340px;left:0px;">
+				<input id='h_btn' type="submit" value="搜索" style="width: 45px;left: 343px;">
+			</div>
+		</div>
+		</div>
+
+		<!-- main -->
+		<div id="container" class="cart">
+			<div class="w" style="width:1100px ;">
+				<div id="chunjie" class="mb10"></div>
+				<div class="cart-filter-bar">
+					<ul class="switch-cart">
+						<li class="switch-cart-item">
+							<a href="">
+								<em>全部商品</em>
+								<span class="number">1</span>
+							</a>
+						</li>
+						<li class="switch-cart-item ui-switchable-selected curr">
+							<a class="" href="">
+								<em>京东大药房</em>
+							</a>
+						</li>
+					</ul>
+					<div class="cart-store">
+						<input id="hiddenLocationId" type="hidden">
+						<input id="hiddenLocation" type="hidden">
+
+					</div>
+					<div class="clr"></div>
+					<div class="w-line">
+						<div class="floater" style="width: 81px; left: 109.703px;"></div>
+					</div>
+					<div class="tab-con" style="display: none;"></div>
+					<div class="tab-con hide ui-switchable-panel-selected" style="display: block;"></div>
+				</div>
+			</div>
+			<div class="cart-warp">
+				<div class="w" style="width: 1100px;">
+					<div id="jd-cart">
+						<div class="cart-main cart-main-new">
+							<div class="cart-thead">
+								<div class="column t-checkbox">
+									<div class="cart-checkbox">
+										<input type="checkbox" checked="checked" id="toggle-checkboxes_up" name="toggle-checkboxes" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_allCheck">
+										<label class="checked" for="">勾选全部商品</label>
+									</div>
+									全选
+								</div>
+								<div class="column t-goods">商品</div>
+								<div class="column t-props"></div>
+								<div class="column t-price">单价(元)</div>
+								<div class="column t-quantity">数量</div>
+								<div class="column t-sum">小计(元)</div>
+								<div class="column t-action">操作</div>
+							</div>
+							<div id="cart-list">
+								<input type="hidden" id="allSkuIds" value="1832199">
+								<input type="hidden" id="outSkus" value="">
+								<input type="hidden" id="isLogin" value="1">
+								<input type="hidden" id="isNoSearchStockState" value="0">
+								<input type="hidden" id="isNoDD" value="0">
+								<input type="hidden" id="isNoCoupon" value="0">
+								<input type="hidden" id="isFavoriteDowngrade" value="0">
+								<input type="hidden" id="isUnmarketDowngrade" value="1">
+								<input type="hidden" id="isPriceNoticeDowngrade" value="0">
+								<input type="hidden" id="isNoZYCoupon" value="0">
+								<input type="hidden" id="isNoVenderFreight" value="0">
+								<input type="hidden" id="isNoDeliveryService" value="0">
+								<input type="hidden" id="isNoSamReplace" value="0">
+								<input type="hidden" id="hiddenLocationId">
+								<input type="hidden" id="hiddenLocation">
+								<input type="hidden" id="ids" value="1832199">
+								<input type="hidden" id="isNgsdg" value="0">
+								<!-- 修改数量之前的值 -->
+								<input type="hidden" id="changeBeforeValue" value="">
+								<input type="hidden" id="changeBeforeId" value="">
+								<input type="hidden" value="1" id="checkedCartState">
+								<input type="hidden" value="" id="venderIds">
+								<input type="hidden" value="1832199_11303" id="zySkuCid">
+								<input type="hidden" value="8888" id="venderFreightIds">
+								<input type="hidden" value="449.00" id="venderTotals">
+								<input type="hidden" value="2" id="uclass">
+								<div class="cart-item-list" id="cart-item-list-01">
+									<div class="cart-tbody" id="vender_8888">
+										<div class="shop">
+											<div class="cart-checkbox">
+												<input type="checkbox" checked="checked" name="checkShop" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_shop">
+												<label for="">勾选店铺内全部商品</label>
+											</div>
+											<span class="shop-txt">
+												<a class="shop-name self-shop-name" href="javascript:;" id="venderId_8888" clstag="clickcart|keycount|xincart|cart_shopNameJD">京东自营</a>
+									</span>
+											<div class="shop-extra-r" id="shop-extra-r_8888" checkedskuids="1832199" totalprice="449.00" venderfreight="6.00" freeshippingprice="99.00" venderid="8888" freightpattern="1" venderfreighttype="1">购满￥99.00 已免运费 <span class="tips-icon omu-tips" data-tips="部分超重超大商品运费单独收取，不在本功能范围内，准确运费以结算页为准"></span></div>
+										</div>
+										<div class="item-list">
+											<!--单品-->
+											<!-- 单品-->
+											<?php foreach ($data as $k => $v): ?>
+											<div class="item-single  item-item item-selected  " id="product_1832199" style="background: #FFFFFF;">
+												<div class="item-form">
+													<div class="cell p-checkbox">
+														<div class="cart-checkbox">
+															<!--单品-->
+															<input p-type="1832199_1" type="checkbox" name="checkItem" value="1832199_1" checked="checked" data-bind="cbid" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_sku">
+															<label for="" class="checked">勾选商品</label>
+															<span class="line-circle"></span>
+														</div>
+													</div>
+													<div class="cell p-goods">
+														<div class="goods-item">
+															<div class="p-img">
+																<a href="" target="_blank" class="J_zyyhq_1832199"><img width="70" src="<?= $v['gpic']?>"></a>
+															</div>
+															<div class="item-msg">
+																<div class="p-name">
+																	<a clstag="clickcart|keycount|xincart|cart_sku_name" href="http://item.jd.com/1832199.html" target="_blank">
+																		<?= $v['gname']?>
+																	</a>
+																</div>
+																<div class="p-extend">
+																	<span class="promise" _giftcard="giftcard_1832199"><i class="jd-giftcard-icon"></i><a data-tips="选择礼品卡包装，将单独下单结算" clstag="clickcart|keycount|xincart|cart_lipin" class="ftx-03 gift-packing" href="javascript:void(0);">购买礼品包装</a></span>
+																	<span class="promise" _yanbao="yanbao_1832199_"><i class="jd-service-icon"></i><a data-tips="购买增值保障" class="ftx-03 jd-service" href="http://cart.jd.com/cart.action#none">购买增值保障</a></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="cell p-props p-props-new">
+														<div class="props-txt" title="">
+															<?= $v['gdesc']?>
+														</div>
+														<div class="props-txt" title="【240G-256G】"></div>
+													</div>
+													<div class="cell p-price">
+														<strong><?= $v['price']?></strong>
+													</div>
+													<div class="cell p-quantity">
+														<!--单品-->
+														<div class="quantity-form">
+															<a href="./index.php?m=home&c=cart&a=jian&gid=<?= $v['gid']?>" clstag="clickcart|keycount|xincart|cart_num_down" class="decrement" id="decrement_8888_1832199_1_1">-</a>
+															<input autocomplete="off" type="text" class="itxt" value="<?= $v['n']?>" id="changeQuantity_8888_1832199_1_1_0">
+															<a href="./index.php?m=home&c=cart&a=jia&gid=<?= $v['gid']?>" clstag="clickcart|keycount|xincart|cart_num_up" class="increment" id="increment_8888_1832199_1_1_0">+</a>
+														</div>
+														<div class="ac ftx-03 quantity-txt" _stock="stock_1832199">有货</div>
+													</div>
+													<div class="cell p-sum">
+														<strong><?= $v['xj']?></strong>
+													</div>
+													<div class="cell p-ops">
+														<!--单品-->
+														<a id="remove_8888_1832199_1" clstag="clickcart|keycount|xincart|cart_sku_del" data-name="东芝(TOSHIBA) Q300系列 240G SATA3 固态硬..." data-more="removed_449.00_1" class="cart-remove" href="./index.php?m=home&c=cart&a=delect&gid=<?= $v['gid']?>">删除</a>
+														<a href="javascript:void(0);" class="cart-follow" id="follow_8888_1832199_1" clstag="clickcart|keycount|xincart|cart_sku_guanzhu">移到我的关注</a>
+													</div>
+												</div>
+												<div class="item-extra">
+													<!-- 落地配服务 -->
+													<div class="unmarket-items" _unmarket="unmarket_1832199" data="670;677;11303;1832199;1474381918487"></div>
+												</div>
+												<div class="item-line"></div>
+											</div>
+										</div>
+										<?php endforeach;?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="cart-floatbar">
+						<div class="ui-ceilinglamp-1" style="width: 990px; height: 52px;">
+							<div class="cart-toolbar fixed-bottom" style="margin:0 auto; height: 50px;">
+								<div class="toolbar-wrap" style="width: 1100px;">
+									<div class="selected-item-list hide" style="display: none;">
+									</div>
+									<div class="options-box">
+										<div class="select-all">
+											<div class="cart-checkbox">
+												<input type="checkbox" checked="checked" id="toggle-checkboxes_down" name="toggle-checkboxes" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_allCheckDown">
+												<label class="checked" for="">勾选全部商品</label>
+											</div>
+											全选
+										</div>
+										<div class="operation">
+											<a href="" clstag="clickcart|keycount|xincart|cart_somesku_del" class="remove-batch">删除选中的商品</a>
+											<a href="" class="follow-batch" clstag="clickcart|keycount|xincart|cart_somesku_guanzhu">移到我的关注</a>
+											<a class="J_clr_nosale" href="" clstag="pageclick|keycount|201508251|23">清除下柜商品</a>
+										</div>
+										<div class="clr"></div>
+										<div class="toolbar-right">
+											<div class="normal">
+												<div class="comm-right">
+													<div class="btn-area">
+														<a href="./index.php?m=home&c=order&a=index&gid=<?= $id;?>"  class="submit-btn">
+															去结算<b></b></a>
+														<!-- <a href="javascript:void(0);" class="submit-btn submit-btn-disabled">
+								去结算<b></b></a> -->
+													</div>
+													<div class="price-sum">
+														<div>
+															<span class="txt txt-new">总价：</span>
+															<span class="price sumPrice"><em>￥<?= $_SESSION['order']['sums']; ?></em></span>
+															<b class="ml5 price-tips"></b>
+															<div class="price-tipsbox" style="left: 77.0313px; display: none;">
+																<div class="ui-tips-main">不含运费及送装服务费</div>
+																<span class="price-tipsbox-arrow"></span>
+															</div>
+															<br>
+															<span class="txt">已节省：</span>
+															<span class="price totalRePrice">-￥0.00</span>
+														</div>
+													</div>
+													<div class="amount-sum">
+														已选择<em><?= $_SESSION['order']['nums']; ?></em>件商品<b class="up" clstag="clickcart|keycount|xincart|cart_thumbnailOpen"></b>
+													</div>
+													<div class="clr"></div>
+												</div>
+											</div>
+											<div class="combine" style="display: none;">
+												<div class="comm-right">
+													<div class="btn-area">
+														<a href="javascript:void(0);" onclick="return false;" clstag="clickcart|keycount|xincart|cart_gotoOrderOut" class="jdInt-submit-btn">
+															去全球购结算<b></b></a>
+														<a href="javascript:void(0);" onclick="return false;" clstag="clickcart|keycount|xincart|cart_gotoOrder" class="common-submit-btn">
+															去京东结算<b></b></a>
+													</div>
+													<div class="price-sum">
+														<div>
+															<span class="txt txt-new">总价：</span>
+															<span class="price sumPrice"><em>￥<?= $_SESSION['order']['sums']; ?></em></span>
+															<b class="ml5 price-tips"></b>
+															<div class="price-tipsbox" style="display: none; left: 159.85px;">
+																<div class="ui-tips-main">不含运费及送装服务费</div>
+																<span class="price-tipsbox-arrow"></span>
+															</div>
+															<br>
+															<span class="txt">已节省：</span>
+															<span class="price totalRePrice">-￥0.00</span>
+														</div>
+													</div>
+													<div class="amount-sum">
+														已选择<em><?= $_SESSION['order']['nums']; ?></em>件商品<b class="up"></b>
+													</div>
+													<div class="clr"></div>
+												</div>
+												<div class="clr"></div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-removed">
+						<div class="r-tit">已删除商品，您可以重新购买或加关注：</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="w">
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

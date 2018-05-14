@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html >
+	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    
+    <title>账户信息</title>
+	<link type="text/css" rel="stylesheet" href="./Public/Home/css/alpha1.css" >
+	<link type="text/css" rel="stylesheet" href="./Public/Home/css/alpha2.css" >
+	<link href='./Public/Home/css/jd-mycart.css' type="text/css" rel="stylesheet">
+</head>
+<style>
+	.ltop {
+				float: left;
+				margin-left: 15px;
+				width: 498px;
+				height: 35px;
+			}
+			
+			.ltop .orange {
+				display: block;
+				float: left;
+				margin-top: 30px;
+				font-size: 32px;
+				color: #2b672b;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+			.ltop .gray {
+				display: block;
+				float: left;
+				margin-left: 13px;
+				margin-top: 30px;
+				width: 106px;
+				height: 33px;
+				color: rgb(204, 204, 204);
+				font-size: 32px;
+				font-weight: bold;
+				text-align: left;
+			}
+			
+</style>
+
+<!--set|info-->
+<body myjd="_MYJD_info" menuid="set">
+<div id="shortcut-2014">
+	<div class="w" style="width: 1060px;" >
+				<ul class="fl">
+					<li class="dorpdown" id="ttbar-mycity">
+						送至：<span>北京</span>
+					</li>
+				</ul>
+				<ul class="list">
+
+					<?php
+    					    echo '<li>';
+                            if ($_SESSION['home_login'] == false) {
+                                echo '<a style="margin-left:115px;" href="./index.php?m=home&c=login&a=login">你好,请登录</a>';
+                            } else {
+                                echo '<span style="color:#428bca;">欢迎:</span><b><a href="./index.php?m=home&c=login&a=info" style="color:red;">'.$_SESSION['home_userinfo']['uname'].'</a></b><a href="./index.php?m=home&c=login&a=outlogin">&nbsp;退出</a>';
+                            }
+    					    echo '</li>';
+                        ?>
+						<li>
+                            <?php
+                                if($_SESSION['home_login'] == true) {
+    						      	echo '<a href="./index.php?m=home&c=login&a=info">个人中心</a>';
+                                } else {
+                                    echo '<a href="">关于我们</a>';
+                                }
+                            ?>
+						</li>
+						<li>
+							<a href="./index.php?m=home&c=order&a=list">我的订单</a>
+						</li>
+						<li>
+							<a href="./index.php?m=home&c=login&a=info">我的京东</a>
+						</li>
+						<li>
+							<a href="">京东会员</a>
+						</li>
+						<li>
+							<a href="">手机京东</a>
+						</li>
+						<li>
+							<a href="">关注京东</a>
+						</li>
+						<li>
+							<a href="">客户服务</a>
+						</li>
+				</ul>
+				<span class="clr"></span>
+			</div>
+</div>
+<div id="o-header-2013"><div id="header-2013" style="display:none;"></div></div>
+<div id="nav" style="background:#89be86;">
+	<div class="w" style="width: 1100px;background:#89be86;">
+		<div class="logo" style="width: 310px;">
+			
+			<a href="./index.php?m=home&c=index&a=index">
+		
+				<div class="ltop">
+					<span class="orange">SimulateJd</span>
+					<span class="gray">Design</span>
+				</div>
+			</a>
+			
+		</div>
+		<div class="navitems">
+			<ul>
+				<li class="fore-1">
+					<a target="_self" href="./index.php?m=home&c=index&a=index" clstag="homepage|keycount|home2013|Homeindex">首页</a>
+				</li>
+				<li class="fore-3">
+					<div class="dl" clstag="click|keycount|myhome|hsz">
+						<div class="dt">
+							<span class="myjd-set">账户设置</span>
+						</div>
+						<div class="dd">
+							
+							<a tid="_MYJD_info" clstag="Homeyser" href="" target="_self"><span>个人信息</span></a>
+							
+							<a tid="_MYJD_safe" clstag="Homesafe" href="" target="_self"><span>账户安全</span></a>
+
+							<a tid="_MYJD_accbinde" clstag="Homezhbd" href="" target="_self"><span>账号绑定</span></a>
+							
+							<a tid="_MYJD_grade" clstag="Homegrade" href="" target="_self"><span>我的级别</span></a>
+							
+							<a tid="_MYJD_comments" clstag="homeadd" href="" target="_self"><span>收货地址</span></a>
+							
+							<a tid="_MYJD_share" clstag="Homeshare" href="" target="_self"><span>分享绑定</span></a>
+							
+							<a tid="_MYJD_rss" clstag="Homeedm" href="" target="_self"><span>邮件订阅</span></a>
+							
+							<a tid="_MYJD_recor" clstag="Homeedm" href="" target="_self"><span>消费记录</span></a>
+							
+							<a tid="_MYJD_app" clstag="Homeedm" href=""  ><span>应用授权</span></a>
+							
+							<a tid="_MYJD_pay" clstag="Homequick" href=""  ><span>快捷支付</span></a>
+							
+							<a tid="_MYJD_zpzz" clstag="Homezpzz" href="" target="_self"><span>增票资质</span></a>
+<a tid="_MYJD_qyfp" clstag="Homeqyfp" href="" target="_self"><span>企业发票</span></a>							
+<a tid="_MYJD_cgxqd" clstag="Homecgxqd" href="" target="_self"><span>采购需求单</span></a>
+						</div>
+					</div>
+				</li>
+				<li class="fore-4">
+					<div class="dl myjd-info" clstag="click|keycount|myhome|hsq">
+						<div class="dt ">
+							<span>社区</span>
+						</div>
+						<div class="dd">
+							<a tid="_MYJD_me" clstag="hgr" href=""  ><span>个人主页</span></a>
+							<a tid="_MYJD_activities" clstag="Homeclub" href="" target="_self"><span>我的活动</span></a>
+							
+							<a tid="_MYJD_circle" clstag="Homejoincircle" href="" target="_self"><span>我的圈子</span></a>
+							
+							<a tid="_MYJD_mycollect" clstag="Homethread" href="" target="_self"><span>我的帖子</span></a>
+						</div>
+					</div>
+				</li>
+				<li class="fore-5">
+					<a tid="_MYJD_joy" href="" target="_self" clstag="homepage|keycount|home2013|Homemsg">消息</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="clr"></div>
+	</div>
+</div>
+
+<!--container start-->
+<div id="container">
+    <div class="w" style="width: 1100px;">    
+        <div id="content">
+			<div id="sub">
+<div id="menu">
+	<dl class="fore1">
+		<dt id="_MYJD_setting">设置</dt>
+		<dd class="fore1_1 curr" id="_MYJD_info">
+			<a clstag="homepage|keycount|home2013|Homeyser" href="./index.php?m=home&c=login&a=info" target="_self">个人信息</a>
+		</dd>
+		<dd class="fore1_2" id="_MYJD_safe">
+			<a clstag="homepage|keycount|home2013|Homesafe" href="./index.php?m=home&c=order&a=list" target="_self">我的订单</a>
+		</dd>	
+		<dd class="fore1_2" id="_MYJD_safe">
+			<a clstag="homepage|keycount|home2013|Homesafe" href="./index.php?m=home&c=info&a=pwd" target="_self">修改密码</a>
+		</dd>	
+	</dl>
+</div>
+			</div>
+			
+    		<div id="main">
+                <div class="mod-main">
+                    <div class="mt">
+                        <ul class="extra-l">
+                            <li class="fore-1"><a class="curr" href="">基本信息</a></li>
+                            
+                            
+                            
+                        </ul>
+                    </div>
+                    <div class="mc">
+                        <div class="user-set userset-lcol">
+                        	<form action="./index.php?m=home&c=info&a=info&uid=<?=$_SESSION['home_userinfo']['uid']?>" method="post" enctype="multipart/form-data">
+                            <div class="form">
+                                <div class="item">
+                                    <span class="label">用户名：</span>
+                                    <div class="fl">
+                                        <div><strong><?= $data['uname'];?></strong></div>
+                                    </div>
+                                </div>
+								<div class="item">
+								<span class="label"><em>*</em> 邮箱：</span>
+									<div class="fl">
+										<input clstag="homepage|keycount|home2013|infoname" type="email" class="itxt" maxlength="20" id="nickName" name="email" value="<?= $data['email'];?>">
+									</div>
+								<div class="clr"></div>
+								</div>
+								<div class="item">
+								<span class="label"><em>*</em> 头像上传：</span>
+									<div class="fl">
+										<input style="border:none;" clstag="homepage|keycount|home2013|infoname" type="file" class="itxt" maxlength="20" id="nickName" name="uface" value="">
+									</div>
+								<div class="clr"></div>
+								</div>
+                                <div class="item">
+                                    <span class="label"><em>*</em>性别：</span>
+                                    <div class="fl" clstag="homepage|keycount|home2013|infoGender">
+                                        <input type="radio" name="sex" class="jdradio" value="m" <?= $data['sex'] == 'm' ? 'checked' : '';?>><label class="mr10">男</label>
+                                        <input type="radio" name="sex" class="jdradio" value="w" <?= $data['sex'] == 'w' ? 'checked' : '';?>><label class="mr10">女</label>
+                                        <input type="radio" name="sex" class="jdradio" value="x" <?= $data['sex'] == 'x' ? 'checked' : '';?>><label class="mr10">保密</label>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="fl">
+                                        <input style="color:white;background:#E45050;border:none;width:100px;float:left;height:30px;font-family:微软雅黑;font-size:14px;margin-left:20px;" type="submit" value="修改" >
+                                        <a href='./index.php?m=home&c=index&a=index' style="display:block;float:left;color:#E45050;background:#eee;border:none;width:100px;height:30px;font-family:微软雅黑;text-align:center;line-height:30px;font-size:14px;margin-left:20px;">返回</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div id="user-info">
+                            <div class="u-pic">
+                                <img alt="用户头像" 
+                                	<?php
+										if (empty($data['uface'])) {
+											echo 'src="./Public/Home/images/no-img_mid_.jpg"';
+										} else {
+											echo 'src="'.$data['uface'].'"';							
+										}
+           							?>>
+                                <div class="mask"></div>
+                                <div class="face-link-box"></div>
+                                <a href="" class="face-link">修改头像</a>
+                            </div>
+                            <div class="info-m">
+								<div><b>用户名：<?= $data['uname'];?></b></div>
+                                <div class="u-level">
+									<span class="rank r4">
+										<s></s><a clstag="homepage|keycount|home2013|infoMember" href=""  >金牌会员</a>
+									</span>
+                                </div>
+                                <!--<div class="shop-level">购物行为评级：<span><a   href="//vip.jd.com/help_behaviorRating.html">
+									<s id="userCredit" class="rank-sh rank-sh01"></s></a></span></div> -->
+                                                            <div clstag="pageclick|keycount|201602251|4">小白信用：<a href=""  >开通后可查看</a></div>
+                                                            <div>会员类型：个人用户</div>
+                            </div>
+                        </div>
+						<div class="fr ac" style="width:280px;">
+							  注：修改手机和邮箱请到<a clstag="homepage|keycount|home2013|infopay" class="ml5 ftx05" href="">账户安全</a>
+						</div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--container end-->
+
+<!--main-->
+
+ </body>
+ </html>
